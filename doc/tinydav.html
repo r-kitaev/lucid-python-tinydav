@@ -1,0 +1,751 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package tinydav</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>tinydav</strong></big></big> (version 0.6.8)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/hermann/Entwürfe/hg/tinydav/tinydav/__init__.py">/home/hermann/Entwürfe/hg/tinydav/tinydav/__init__.py</a></font></td></tr></table>
+    <p><tt>The&nbsp;tinydav&nbsp;WebDAV&nbsp;client.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="tinydav.creator.html">creator</a><br>
+</td><td width="25%" valign=top><a href="tinydav.exception.html">exception</a><br>
+</td><td width="25%" valign=top><a href="tinydav.util.html">util</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="tinydav.html#HTTPClient">HTTPClient</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="exceptions.html#Exception">exceptions.Exception</a>(<a href="exceptions.html#BaseException">exceptions.BaseException</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="tinydav.exception.html#HTTPError">tinydav.exception.HTTPError</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="tinydav.exception.html#HTTPServerError">tinydav.exception.HTTPServerError</a>
+</font></dt><dt><font face="helvetica, arial"><a href="tinydav.exception.html#HTTPUserError">tinydav.exception.HTTPUserError</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="tinydav.html#ExtendedWebDAVClient">ExtendedWebDAVClient</a>(<a href="tinydav.html#CoreWebDAVClient">CoreWebDAVClient</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="tinydav.html#WebDAVClient">WebDAVClient</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="HTTPClient">class <strong>HTTPClient</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Mini&nbsp;HTTP&nbsp;client.<br>
+&nbsp;<br>
+This&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;has&nbsp;the&nbsp;following&nbsp;attributes:<br>
+&nbsp;<br>
+host&nbsp;--&nbsp;Given&nbsp;host&nbsp;on&nbsp;initialization.<br>
+port&nbsp;--&nbsp;Given&nbsp;port&nbsp;on&nbsp;initialization.<br>
+protocol&nbsp;--&nbsp;Used&nbsp;protocol.&nbsp;Either&nbsp;chosen&nbsp;by&nbsp;the&nbsp;port&nbsp;number&nbsp;or&nbsp;taken<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;given&nbsp;value&nbsp;in&nbsp;initialization.<br>
+headers&nbsp;--&nbsp;Dictionary&nbsp;with&nbsp;headers&nbsp;to&nbsp;send&nbsp;with&nbsp;every&nbsp;request.<br>
+cookie&nbsp;--&nbsp;If&nbsp;set&nbsp;with&nbsp;setcookie:&nbsp;the&nbsp;given&nbsp;<a href="__builtin__.html#object">object</a>.<br>
+locks&nbsp;--&nbsp;Mapping&nbsp;with&nbsp;locks.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="HTTPClient-__init__"><strong>__init__</strong></a>(self, host, port<font color="#909090">=80</font>, protocol<font color="#909090">=None</font>, strict<font color="#909090">=False</font>, timeout<font color="#909090">=None</font>, source_address<font color="#909090">=None</font>)</dt><dd><tt>Initialize&nbsp;the&nbsp;WebDAV&nbsp;client.<br>
+&nbsp;<br>
+host&nbsp;--&nbsp;WebDAV&nbsp;server&nbsp;host.<br>
+port&nbsp;--&nbsp;WebDAV&nbsp;server&nbsp;port.<br>
+protocol&nbsp;--&nbsp;Override&nbsp;protocol&nbsp;name.&nbsp;Is&nbsp;either&nbsp;'http'&nbsp;or&nbsp;'https'.&nbsp;If<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;not&nbsp;given,&nbsp;the&nbsp;protocol&nbsp;will&nbsp;be&nbsp;chosen&nbsp;by&nbsp;the&nbsp;port&nbsp;number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;automatically:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;-&gt;&nbsp;http<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;443&nbsp;&nbsp;-&gt;&nbsp;https<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8080&nbsp;-&gt;&nbsp;http<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8081&nbsp;-&gt;&nbsp;http<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;port&nbsp;is&nbsp;'http'.<br>
+strict&nbsp;--&nbsp;When&nbsp;True,&nbsp;raise&nbsp;BadStatusLine&nbsp;if&nbsp;the&nbsp;status&nbsp;line&nbsp;can't&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parsed&nbsp;as&nbsp;a&nbsp;valid&nbsp;HTTP/1.0&nbsp;or&nbsp;1.1&nbsp;status&nbsp;line&nbsp;(see&nbsp;Python<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doc&nbsp;for&nbsp;httplib).<br>
+timeout&nbsp;--&nbsp;Operations&nbsp;will&nbsp;timeout&nbsp;after&nbsp;that&nbsp;many&nbsp;seconds.&nbsp;Else&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;global&nbsp;default&nbsp;timeout&nbsp;setting&nbsp;is&nbsp;used&nbsp;(see&nbsp;Python&nbsp;doc&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;httplib).&nbsp;This&nbsp;argument&nbsp;is&nbsp;available&nbsp;since&nbsp;Python&nbsp;2.6.&nbsp;It<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;won't&nbsp;have&nbsp;any&nbsp;effect&nbsp;in&nbsp;previous&nbsp;version.<br>
+source_address&nbsp;--&nbsp;A&nbsp;tuple&nbsp;of&nbsp;(host,&nbsp;port)&nbsp;to&nbsp;use&nbsp;as&nbsp;the&nbsp;source&nbsp;address<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;HTTP&nbsp;connection&nbsp;is&nbsp;made&nbsp;from&nbsp;(see&nbsp;Python&nbsp;doc&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;httplib).&nbsp;This&nbsp;argument&nbsp;is&nbsp;available&nbsp;since<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Python&nbsp;2.7.&nbsp;It&nbsp;won't&nbsp;have&nbsp;any&nbsp;effect&nbsp;in&nbsp;previous<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;versions.</tt></dd></dl>
+
+<dl><dt><a name="HTTPClient-connect"><strong>connect</strong></a>(self, uri, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;CONNECT&nbsp;request&nbsp;and&nbsp;return&nbsp;HTTPResponse.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Path&nbsp;to&nbsp;post&nbsp;data&nbsp;to.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;set.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="HTTPClient-delete"><strong>delete</strong></a>(self, uri, content<font color="#909090">=''</font>, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;DELETE&nbsp;request&nbsp;and&nbsp;return&nbsp;HTTPResponse.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Path&nbsp;to&nbsp;post&nbsp;data&nbsp;to.<br>
+content&nbsp;--&nbsp;File&nbsp;descriptor&nbsp;or&nbsp;string&nbsp;with&nbsp;content.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;set.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="HTTPClient-get"><strong>get</strong></a>(self, uri, headers<font color="#909090">=None</font>, query<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;GET&nbsp;request&nbsp;and&nbsp;return&nbsp;status.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;URI&nbsp;of&nbsp;the&nbsp;request.<br>
+headers&nbsp;--&nbsp;Optional&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;send.<br>
+query&nbsp;--&nbsp;Mapping&nbsp;with&nbsp;key/value-pairs&nbsp;to&nbsp;be&nbsp;added&nbsp;as&nbsp;query&nbsp;to&nbsp;the&nbsp;URI.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="HTTPClient-head"><strong>head</strong></a>(self, uri, headers<font color="#909090">=None</font>, query<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;HEAD&nbsp;request&nbsp;and&nbsp;return&nbsp;status.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;URI&nbsp;of&nbsp;the&nbsp;request.<br>
+headers&nbsp;--&nbsp;Optional&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;send.<br>
+query&nbsp;--&nbsp;Mapping&nbsp;with&nbsp;key/value-pairs&nbsp;to&nbsp;be&nbsp;added&nbsp;as&nbsp;query&nbsp;to&nbsp;the&nbsp;URI.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="HTTPClient-options"><strong>options</strong></a>(self, uri, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;OPTIONS&nbsp;request&nbsp;and&nbsp;return&nbsp;status.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;URI&nbsp;of&nbsp;the&nbsp;request.<br>
+headers&nbsp;--&nbsp;Optional&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;send.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="HTTPClient-post"><strong>post</strong></a>(self, uri, content<font color="#909090">=''</font>, headers<font color="#909090">=None</font>, query<font color="#909090">=None</font>, as_multipart<font color="#909090">=False</font>, encoding<font color="#909090">='ascii'</font>, with_filenames<font color="#909090">=False</font>)</dt><dd><tt>Make&nbsp;POST&nbsp;request&nbsp;and&nbsp;return&nbsp;HTTPResponse.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Path&nbsp;to&nbsp;post&nbsp;data&nbsp;to.<br>
+content&nbsp;--&nbsp;File&nbsp;descriptor,&nbsp;string&nbsp;or&nbsp;dict&nbsp;with&nbsp;content&nbsp;to&nbsp;POST.&nbsp;If&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;a&nbsp;dict,&nbsp;the&nbsp;dict&nbsp;contents&nbsp;will&nbsp;be&nbsp;posted&nbsp;as&nbsp;content&nbsp;type<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/x-www-form-urlencoded.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;set.<br>
+query&nbsp;--&nbsp;Mapping&nbsp;with&nbsp;key/value-pairs&nbsp;to&nbsp;be&nbsp;added&nbsp;as&nbsp;query&nbsp;to&nbsp;the&nbsp;URI.<br>
+as_multipart&nbsp;--&nbsp;Send&nbsp;post&nbsp;data&nbsp;as&nbsp;multipart/form-data.&nbsp;content&nbsp;must&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;dict,&nbsp;then.&nbsp;If&nbsp;content&nbsp;is&nbsp;not&nbsp;a&nbsp;dict,&nbsp;then&nbsp;this&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;argument&nbsp;will&nbsp;be&nbsp;ignored.&nbsp;The&nbsp;values&nbsp;of&nbsp;the&nbsp;dict&nbsp;may&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;subclass&nbsp;of&nbsp;email.mime.base.MIMEBase,&nbsp;which&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attached&nbsp;to&nbsp;the&nbsp;multipart&nbsp;as&nbsp;is,&nbsp;a&nbsp;2-tuple&nbsp;containing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;actual&nbsp;value&nbsp;(or&nbsp;file-like&nbsp;<a href="__builtin__.html#object">object</a>)&nbsp;and&nbsp;an&nbsp;encoding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;this&nbsp;value&nbsp;(or&nbsp;the&nbsp;content-type&nbsp;in&nbsp;case&nbsp;of&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file-like&nbsp;<a href="__builtin__.html#object">object</a>).<br>
+encoding&nbsp;--&nbsp;Send&nbsp;multipart&nbsp;content&nbsp;encoding&nbsp;with&nbsp;this&nbsp;encoding.&nbsp;Default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;ASCII.<br>
+with_filenames&nbsp;--&nbsp;If&nbsp;True,&nbsp;a&nbsp;multipart's&nbsp;files&nbsp;will&nbsp;be&nbsp;sent&nbsp;with&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;filename&nbsp;paramenter&nbsp;set.&nbsp;Default&nbsp;is&nbsp;False.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="HTTPClient-put"><strong>put</strong></a>(self, uri, fileobject, content_type<font color="#909090">='application/octet-stream'</font>, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;PUT&nbsp;request&nbsp;and&nbsp;return&nbsp;status.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Path&nbsp;for&nbsp;PUT.<br>
+fileobject&nbsp;--&nbsp;File-like&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;or&nbsp;string&nbsp;with&nbsp;content&nbsp;to&nbsp;PUT.<br>
+content_type&nbsp;--&nbsp;The&nbsp;content-type&nbsp;of&nbsp;the&nbsp;file.&nbsp;Default&nbsp;value&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/octet-stream.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;dict&nbsp;with&nbsp;headers&nbsp;to&nbsp;send.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="HTTPClient-setbasicauth"><strong>setbasicauth</strong></a>(self, user, password)</dt><dd><tt>Set&nbsp;authorization&nbsp;header&nbsp;for&nbsp;basic&nbsp;auth.<br>
+&nbsp;<br>
+user&nbsp;--&nbsp;Username<br>
+password&nbsp;--&nbsp;Password&nbsp;for&nbsp;user.</tt></dd></dl>
+
+<dl><dt><a name="HTTPClient-setcookie"><strong>setcookie</strong></a>(self, cookie)</dt><dd><tt>Set&nbsp;cookie&nbsp;class&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;requests.<br>
+&nbsp;<br>
+cookie&nbsp;--&nbsp;Cookie&nbsp;class&nbsp;from&nbsp;cookielib.</tt></dd></dl>
+
+<dl><dt><a name="HTTPClient-setssl"><strong>setssl</strong></a>(self, key_file<font color="#909090">=None</font>, cert_file<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;SSL&nbsp;key&nbsp;file&nbsp;and/or&nbsp;certificate&nbsp;chain&nbsp;file&nbsp;for&nbsp;HTTPS.<br>
+&nbsp;<br>
+Calling&nbsp;this&nbsp;method&nbsp;has&nbsp;the&nbsp;side&nbsp;effect&nbsp;of&nbsp;setting&nbsp;the&nbsp;protocol&nbsp;to<br>
+https.<br>
+&nbsp;<br>
+key_file&nbsp;--&nbsp;The&nbsp;name&nbsp;of&nbsp;a&nbsp;PEM&nbsp;formatted&nbsp;file&nbsp;that&nbsp;contains&nbsp;your<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;key.<br>
+cert_file&nbsp;--&nbsp;PEM&nbsp;formatted&nbsp;certificate&nbsp;chain&nbsp;file&nbsp;(see&nbsp;Python&nbsp;doc&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;httplib).</tt></dd></dl>
+
+<dl><dt><a name="HTTPClient-trace"><strong>trace</strong></a>(self, uri, maxforwards<font color="#909090">=None</font>, via<font color="#909090">=None</font>, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;TRACE&nbsp;request&nbsp;and&nbsp;return&nbsp;HTTPResponse.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Path&nbsp;to&nbsp;post&nbsp;data&nbsp;to.<br>
+maxforwards&nbsp;--&nbsp;Number&nbsp;of&nbsp;maximum&nbsp;forwards.&nbsp;May&nbsp;be&nbsp;None.<br>
+via&nbsp;--&nbsp;If&nbsp;given,&nbsp;an&nbsp;iterable&nbsp;containing&nbsp;each&nbsp;station&nbsp;in&nbsp;the&nbsp;form<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stated&nbsp;in&nbsp;<a href="http://www.rfc-editor.org/rfc/rfc2616.txt">RFC2616</a>,&nbsp;section&nbsp;14.45.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;set.<br>
+&nbsp;<br>
+Raise&nbsp;ValueError,&nbsp;if&nbsp;maxforward&nbsp;is&nbsp;not&nbsp;an&nbsp;int&nbsp;or&nbsp;convertable&nbsp;to<br>
+an&nbsp;int.<br>
+Raise&nbsp;TypeError,&nbsp;if&nbsp;via&nbsp;is&nbsp;not&nbsp;an&nbsp;iterable&nbsp;of&nbsp;string.<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>ResponseType</strong> = &lt;class 'tinydav.HTTPResponse'&gt;<dd><tt>Result&nbsp;from&nbsp;HTTP&nbsp;request.<br>
+&nbsp;<br>
+An&nbsp;HTTPResponse&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;int.&nbsp;The&nbsp;int&nbsp;value&nbsp;of&nbsp;such&nbsp;an<br>
+<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;the&nbsp;HTTP&nbsp;status&nbsp;number&nbsp;from&nbsp;the&nbsp;response.<br>
+&nbsp;<br>
+This&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;has&nbsp;the&nbsp;following&nbsp;attributes:<br>
+&nbsp;<br>
+response&nbsp;--&nbsp;The&nbsp;original&nbsp;httplib.HTTPResponse&nbsp;<a href="__builtin__.html#object">object</a>.<br>
+headers&nbsp;--&nbsp;A&nbsp;dictionary&nbsp;with&nbsp;the&nbsp;received&nbsp;headers.<br>
+content&nbsp;--&nbsp;The&nbsp;content&nbsp;of&nbsp;the&nbsp;response&nbsp;as&nbsp;string.<br>
+statusline&nbsp;--&nbsp;The&nbsp;received&nbsp;HTTP&nbsp;status&nbsp;line.&nbsp;E.g.&nbsp;"HTTP/1.1&nbsp;200&nbsp;OK".</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="HTTPError">class <strong>HTTPError</strong></a>(<a href="exceptions.html#Exception">exceptions.Exception</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Base&nbsp;exception&nbsp;class&nbsp;for&nbsp;HTTP&nbsp;errors.<br>
+&nbsp;<br>
+response&nbsp;--&nbsp;httplib.Response&nbsp;<a href="__builtin__.html#object">object</a>.<br>
+method&nbsp;--&nbsp;String&nbsp;with&nbsp;uppercase&nbsp;method&nbsp;name.<br>
+&nbsp;<br>
+This&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;has&nbsp;the&nbsp;following&nbsp;attributes:<br>
+&nbsp;&nbsp;response&nbsp;--&nbsp;The&nbsp;HTTPResponse&nbsp;<a href="__builtin__.html#object">object</a>.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="tinydav.exception.html#HTTPError">HTTPError</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="HTTPError-__init__"><strong>__init__</strong></a>(self, response)</dt><dd><tt>Initialize&nbsp;the&nbsp;<a href="#HTTPError">HTTPError</a>.<br>
+&nbsp;<br>
+response&nbsp;--&nbsp;<a href="#HTTPClient">HTTPClient</a>&nbsp;or&nbsp;one&nbsp;of&nbsp;its&nbsp;subclasses.<br>
+method&nbsp;--&nbsp;The&nbsp;uppercase&nbsp;method&nbsp;name&nbsp;where&nbsp;the&nbsp;error&nbsp;occured.<br>
+&nbsp;<br>
+This&nbsp;instance&nbsp;has&nbsp;the&nbsp;following&nbsp;attributes:<br>
+&nbsp;<br>
+response&nbsp;--&nbsp;Given&nbsp;<a href="#HTTPClient">HTTPClient</a>.</tt></dd></dl>
+
+<dl><dt><a name="HTTPError-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;representation&nbsp;of&nbsp;an&nbsp;<a href="#HTTPError">HTTPError</a>.</tt></dd></dl>
+
+<dl><dt><a name="HTTPError-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Return&nbsp;string&nbsp;representation&nbsp;of&nbsp;an&nbsp;<a href="#HTTPError">HTTPError</a>.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#HTTPError-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="HTTPError-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPError-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="HTTPError-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPError-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="HTTPError-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPError-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="HTTPError-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPError-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="HTTPError-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="HTTPError-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPError-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="HTTPError-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="HTTPError-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="HTTPServerError">class <strong>HTTPServerError</strong></a>(<a href="tinydav.exception.html#HTTPError">HTTPError</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="exceptions.html#Exception">Exception</a>&nbsp;class&nbsp;for&nbsp;5xx&nbsp;HTTP&nbsp;errors.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="tinydav.exception.html#HTTPServerError">HTTPServerError</a></dd>
+<dd><a href="tinydav.exception.html#HTTPError">HTTPError</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="tinydav.exception.html#HTTPError">HTTPError</a>:<br>
+<dl><dt><a name="HTTPServerError-__init__"><strong>__init__</strong></a>(self, response)</dt><dd><tt>Initialize&nbsp;the&nbsp;<a href="#HTTPError">HTTPError</a>.<br>
+&nbsp;<br>
+response&nbsp;--&nbsp;<a href="#HTTPClient">HTTPClient</a>&nbsp;or&nbsp;one&nbsp;of&nbsp;its&nbsp;subclasses.<br>
+method&nbsp;--&nbsp;The&nbsp;uppercase&nbsp;method&nbsp;name&nbsp;where&nbsp;the&nbsp;error&nbsp;occured.<br>
+&nbsp;<br>
+This&nbsp;instance&nbsp;has&nbsp;the&nbsp;following&nbsp;attributes:<br>
+&nbsp;<br>
+response&nbsp;--&nbsp;Given&nbsp;<a href="#HTTPClient">HTTPClient</a>.</tt></dd></dl>
+
+<dl><dt><a name="HTTPServerError-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;representation&nbsp;of&nbsp;an&nbsp;<a href="#HTTPError">HTTPError</a>.</tt></dd></dl>
+
+<dl><dt><a name="HTTPServerError-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Return&nbsp;string&nbsp;representation&nbsp;of&nbsp;an&nbsp;<a href="#HTTPError">HTTPError</a>.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="tinydav.exception.html#HTTPError">HTTPError</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#HTTPServerError-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="HTTPServerError-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPServerError-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="HTTPServerError-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPServerError-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="HTTPServerError-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPServerError-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="HTTPServerError-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPServerError-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="HTTPServerError-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="HTTPServerError-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPServerError-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="HTTPServerError-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="HTTPServerError-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="HTTPUserError">class <strong>HTTPUserError</strong></a>(<a href="tinydav.exception.html#HTTPError">HTTPError</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="exceptions.html#Exception">Exception</a>&nbsp;class&nbsp;for&nbsp;4xx&nbsp;HTTP&nbsp;errors.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="tinydav.exception.html#HTTPUserError">HTTPUserError</a></dd>
+<dd><a href="tinydav.exception.html#HTTPError">HTTPError</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="tinydav.exception.html#HTTPError">HTTPError</a>:<br>
+<dl><dt><a name="HTTPUserError-__init__"><strong>__init__</strong></a>(self, response)</dt><dd><tt>Initialize&nbsp;the&nbsp;<a href="#HTTPError">HTTPError</a>.<br>
+&nbsp;<br>
+response&nbsp;--&nbsp;<a href="#HTTPClient">HTTPClient</a>&nbsp;or&nbsp;one&nbsp;of&nbsp;its&nbsp;subclasses.<br>
+method&nbsp;--&nbsp;The&nbsp;uppercase&nbsp;method&nbsp;name&nbsp;where&nbsp;the&nbsp;error&nbsp;occured.<br>
+&nbsp;<br>
+This&nbsp;instance&nbsp;has&nbsp;the&nbsp;following&nbsp;attributes:<br>
+&nbsp;<br>
+response&nbsp;--&nbsp;Given&nbsp;<a href="#HTTPClient">HTTPClient</a>.</tt></dd></dl>
+
+<dl><dt><a name="HTTPUserError-__repr__"><strong>__repr__</strong></a>(self)</dt><dd><tt>Return&nbsp;representation&nbsp;of&nbsp;an&nbsp;<a href="#HTTPError">HTTPError</a>.</tt></dd></dl>
+
+<dl><dt><a name="HTTPUserError-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>Return&nbsp;string&nbsp;representation&nbsp;of&nbsp;an&nbsp;<a href="#HTTPError">HTTPError</a>.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="tinydav.exception.html#HTTPError">HTTPError</a>:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#HTTPUserError-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="HTTPUserError-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPUserError-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="HTTPUserError-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPUserError-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="HTTPUserError-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPUserError-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="HTTPUserError-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPUserError-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="HTTPUserError-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="HTTPUserError-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#HTTPUserError-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="HTTPUserError-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="HTTPUserError-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="WebDAVClient">class <strong>WebDAVClient</strong></a>(<a href="tinydav.html#ExtendedWebDAVClient">ExtendedWebDAVClient</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Mini&nbsp;WebDAV&nbsp;client.<br>
+&nbsp;<br>
+This&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;has&nbsp;the&nbsp;following&nbsp;attributes:<br>
+&nbsp;<br>
+host&nbsp;--&nbsp;Given&nbsp;host&nbsp;on&nbsp;initialization.<br>
+port&nbsp;--&nbsp;Given&nbsp;port&nbsp;on&nbsp;initialization.<br>
+protocol&nbsp;--&nbsp;Used&nbsp;protocol.&nbsp;Either&nbsp;chosen&nbsp;by&nbsp;the&nbsp;port&nbsp;number&nbsp;or&nbsp;taken<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from&nbsp;given&nbsp;value&nbsp;in&nbsp;initialization.<br>
+headers&nbsp;--&nbsp;Dictionary&nbsp;with&nbsp;headers&nbsp;to&nbsp;send&nbsp;with&nbsp;every&nbsp;request.<br>
+cookie&nbsp;--&nbsp;If&nbsp;set&nbsp;with&nbsp;setcookie:&nbsp;the&nbsp;given&nbsp;<a href="__builtin__.html#object">object</a>.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="tinydav.html#WebDAVClient">WebDAVClient</a></dd>
+<dd><a href="tinydav.html#ExtendedWebDAVClient">ExtendedWebDAVClient</a></dd>
+<dd><a href="tinydav.html#CoreWebDAVClient">CoreWebDAVClient</a></dd>
+<dd><a href="tinydav.html#HTTPClient">HTTPClient</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="tinydav.html#ExtendedWebDAVClient">ExtendedWebDAVClient</a>:<br>
+<dl><dt><a name="WebDAVClient-report"><strong>report</strong></a>(self, uri, depth<font color="#909090">=0</font>, properties<font color="#909090">=None</font>, elements<font color="#909090">=None</font>, namespaces<font color="#909090">=None</font>, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;a&nbsp;REPORT&nbsp;request&nbsp;and&nbsp;return&nbsp;status.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Resource&nbsp;or&nbsp;collection&nbsp;to&nbsp;get&nbsp;report&nbsp;for.<br>
+depth&nbsp;--&nbsp;Either&nbsp;0&nbsp;or&nbsp;1&nbsp;or&nbsp;"infinity".&nbsp;Default&nbsp;is&nbsp;zero.<br>
+properties&nbsp;--&nbsp;If&nbsp;given,&nbsp;an&nbsp;iterable&nbsp;with&nbsp;all&nbsp;requested&nbsp;properties&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expected.<br>
+elements&nbsp;--&nbsp;An&nbsp;iterable&nbsp;with&nbsp;additional&nbsp;XML&nbsp;(ElementTree)&nbsp;elements&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;append&nbsp;to&nbsp;the&nbsp;version-tree.<br>
+namespaces&nbsp;--&nbsp;Mapping&nbsp;with&nbsp;namespaces&nbsp;for&nbsp;given&nbsp;properties,&nbsp;if&nbsp;needed.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;set.<br>
+&nbsp;<br>
+Raise&nbsp;ValueError,&nbsp;if&nbsp;an&nbsp;illegal&nbsp;depth&nbsp;value&nbsp;was&nbsp;given.<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="tinydav.html#CoreWebDAVClient">CoreWebDAVClient</a>:<br>
+<dl><dt><a name="WebDAVClient-__init__"><strong>__init__</strong></a>(self, host, port<font color="#909090">=80</font>, protocol<font color="#909090">=None</font>)</dt><dd><tt>Initialize&nbsp;the&nbsp;WebDAV&nbsp;client.<br>
+&nbsp;<br>
+host&nbsp;--&nbsp;WebDAV&nbsp;server&nbsp;host.<br>
+port&nbsp;--&nbsp;WebDAV&nbsp;server&nbsp;port.<br>
+protocol&nbsp;--&nbsp;Override&nbsp;protocol&nbsp;name.&nbsp;Is&nbsp;either&nbsp;'http'&nbsp;or&nbsp;'https'.&nbsp;If<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;not&nbsp;given,&nbsp;the&nbsp;protocol&nbsp;will&nbsp;be&nbsp;chosen&nbsp;by&nbsp;the&nbsp;port&nbsp;number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;automatically:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80&nbsp;&nbsp;&nbsp;-&gt;&nbsp;http<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;443&nbsp;&nbsp;-&gt;&nbsp;https<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8080&nbsp;-&gt;&nbsp;http<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8081&nbsp;-&gt;&nbsp;http<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default&nbsp;port&nbsp;is&nbsp;'http'.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-copy"><strong>copy</strong></a>(self, source, destination, depth<font color="#909090">='infinity'</font>, overwrite<font color="#909090">=None</font>, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;COPY&nbsp;request&nbsp;and&nbsp;return&nbsp;WebDAVResponse.<br>
+&nbsp;<br>
+source&nbsp;--&nbsp;Path&nbsp;of&nbsp;resource&nbsp;to&nbsp;copy.<br>
+destination&nbsp;--&nbsp;Path&nbsp;of&nbsp;destination&nbsp;to&nbsp;copy&nbsp;source&nbsp;to.<br>
+depth&nbsp;--&nbsp;Either&nbsp;0&nbsp;or&nbsp;"infinity".&nbsp;Default&nbsp;is&nbsp;the&nbsp;latter.<br>
+overwrite&nbsp;--&nbsp;If&nbsp;not&nbsp;None,&nbsp;then&nbsp;a&nbsp;boolean&nbsp;indicating&nbsp;whether&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Overwrite&nbsp;header&nbsp;ist&nbsp;set&nbsp;to&nbsp;"T"&nbsp;(True)&nbsp;or&nbsp;"F"&nbsp;(False).<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;set.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-delete"><strong>delete</strong></a>(self, uri, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;DELETE&nbsp;request&nbsp;and&nbsp;return&nbsp;WebDAVResponse.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Path&nbsp;of&nbsp;resource&nbsp;or&nbsp;collection&nbsp;to&nbsp;delete.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;set.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-lock"><strong>lock</strong></a>(self, uri, scope<font color="#909090">='exclusive'</font>, type_<font color="#909090">='write'</font>, owner<font color="#909090">=None</font>, timeout<font color="#909090">=None</font>, depth<font color="#909090">=None</font>, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;LOCK&nbsp;request&nbsp;and&nbsp;return&nbsp;DAVLock&nbsp;instance.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Resource&nbsp;to&nbsp;get&nbsp;lock&nbsp;on.<br>
+scope&nbsp;--&nbsp;Lock&nbsp;scope:&nbsp;One&nbsp;of&nbsp;"exclusive"&nbsp;(default)&nbsp;or&nbsp;"shared".<br>
+type_&nbsp;--&nbsp;Lock&nbsp;type:&nbsp;"write"&nbsp;(default)&nbsp;only.&nbsp;Any&nbsp;other&nbsp;value&nbsp;allowed&nbsp;by<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;library.<br>
+owner&nbsp;--&nbsp;Content&nbsp;of&nbsp;owner&nbsp;element.&nbsp;May&nbsp;be&nbsp;None,&nbsp;a&nbsp;string&nbsp;or&nbsp;an<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ElementTree&nbsp;element.<br>
+timeout&nbsp;--&nbsp;Value&nbsp;for&nbsp;the&nbsp;timeout&nbsp;header.&nbsp;Either&nbsp;"infinite"&nbsp;or&nbsp;a&nbsp;number<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;representing&nbsp;the&nbsp;seconds&nbsp;(not&nbsp;greater&nbsp;than&nbsp;2^32&nbsp;-&nbsp;1).<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;set.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-mkcol"><strong>mkcol</strong></a>(self, uri, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;MKCOL&nbsp;request&nbsp;and&nbsp;return&nbsp;status.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Path&nbsp;to&nbsp;create.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;dict&nbsp;with&nbsp;headers&nbsp;to&nbsp;send.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-move"><strong>move</strong></a>(self, source, destination, depth<font color="#909090">='infinity'</font>, overwrite<font color="#909090">=None</font>, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;MOVE&nbsp;request&nbsp;and&nbsp;return&nbsp;WebDAVResponse.<br>
+&nbsp;<br>
+source&nbsp;--&nbsp;Path&nbsp;of&nbsp;resource&nbsp;to&nbsp;move.<br>
+destination&nbsp;--&nbsp;Path&nbsp;of&nbsp;destination&nbsp;to&nbsp;move&nbsp;source&nbsp;to.<br>
+depth&nbsp;--&nbsp;Either&nbsp;0&nbsp;or&nbsp;"infinity".&nbsp;Default&nbsp;is&nbsp;the&nbsp;latter.<br>
+overwrite&nbsp;--&nbsp;If&nbsp;not&nbsp;None,&nbsp;then&nbsp;a&nbsp;boolean&nbsp;indicating&nbsp;whether&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Overwrite&nbsp;header&nbsp;ist&nbsp;set&nbsp;to&nbsp;"T"&nbsp;(True)&nbsp;or&nbsp;"F"&nbsp;(False).<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;set.<br>
+&nbsp;<br>
+Raise&nbsp;ValueError,&nbsp;if&nbsp;an&nbsp;illegal&nbsp;depth&nbsp;was&nbsp;given.<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-propfind"><strong>propfind</strong></a>(self, uri, depth<font color="#909090">=0</font>, names<font color="#909090">=False</font>, properties<font color="#909090">=None</font>, include<font color="#909090">=None</font>, namespaces<font color="#909090">=None</font>, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;PROPFIND&nbsp;request&nbsp;and&nbsp;return&nbsp;status.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Path&nbsp;for&nbsp;PROPFIND.<br>
+depth&nbsp;--&nbsp;Depth&nbsp;for&nbsp;PROFIND&nbsp;request.&nbsp;Default&nbsp;is&nbsp;zero.<br>
+names&nbsp;--&nbsp;If&nbsp;True,&nbsp;only&nbsp;the&nbsp;available&nbsp;namespace&nbsp;names&nbsp;are&nbsp;returned.<br>
+properties&nbsp;--&nbsp;If&nbsp;given,&nbsp;an&nbsp;iterable&nbsp;with&nbsp;all&nbsp;requested&nbsp;properties&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expected.<br>
+include&nbsp;--&nbsp;If&nbsp;properties&nbsp;is&nbsp;not&nbsp;given,&nbsp;then&nbsp;additional&nbsp;properties&nbsp;can<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;requested&nbsp;with&nbsp;this&nbsp;argument.<br>
+namespaces&nbsp;--&nbsp;Mapping&nbsp;with&nbsp;namespaces&nbsp;for&nbsp;given&nbsp;properties,&nbsp;if&nbsp;needed.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;dict&nbsp;with&nbsp;headers&nbsp;to&nbsp;send.<br>
+&nbsp;<br>
+Raise&nbsp;ValueError,&nbsp;if&nbsp;illegal&nbsp;depth&nbsp;was&nbsp;given&nbsp;or&nbsp;if&nbsp;properties&nbsp;and<br>
+include&nbsp;arguments&nbsp;were&nbsp;given.<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-proppatch"><strong>proppatch</strong></a>(self, uri, setprops<font color="#909090">=None</font>, delprops<font color="#909090">=None</font>, namespaces<font color="#909090">=None</font>, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;PROPPATCH&nbsp;request&nbsp;and&nbsp;return&nbsp;status.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Path&nbsp;to&nbsp;resource&nbsp;to&nbsp;set&nbsp;properties.<br>
+setprops&nbsp;--&nbsp;Mapping&nbsp;with&nbsp;properties&nbsp;to&nbsp;set.<br>
+delprops&nbsp;--&nbsp;Iterable&nbsp;with&nbsp;properties&nbsp;to&nbsp;remove.<br>
+namespaces&nbsp;--&nbsp;dict&nbsp;with&nbsp;namespaces:&nbsp;name&nbsp;-&gt;&nbsp;URI.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;dict&nbsp;with&nbsp;headers&nbsp;to&nbsp;send.<br>
+&nbsp;<br>
+Either&nbsp;setprops&nbsp;or&nbsp;delprops&nbsp;or&nbsp;both&nbsp;of&nbsp;them&nbsp;must&nbsp;be&nbsp;given,&nbsp;else<br>
+ValueError&nbsp;will&nbsp;be&nbsp;risen.<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-unlock"><strong>unlock</strong></a>(self, uri_or_lock, locktoken<font color="#909090">=None</font>, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;UNLOCK&nbsp;request&nbsp;and&nbsp;return&nbsp;WebDAVResponse.<br>
+&nbsp;<br>
+uri_or_lock&nbsp;--&nbsp;Resource&nbsp;URI&nbsp;to&nbsp;unlock&nbsp;or&nbsp;WebDAVLockResponse.<br>
+locktoken&nbsp;--&nbsp;Use&nbsp;this&nbsp;lock&nbsp;token&nbsp;for&nbsp;unlocking.&nbsp;If&nbsp;not&nbsp;given,&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;registered&nbsp;locks&nbsp;(self.<strong>locks</strong>)&nbsp;will&nbsp;be&nbsp;referenced.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;set.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="tinydav.html#CoreWebDAVClient">CoreWebDAVClient</a>:<br>
+<dl><dt><strong>ResponseType</strong> = &lt;class 'tinydav.WebDAVResponse'&gt;<dd><tt>Result&nbsp;from&nbsp;WebDAV&nbsp;request.<br>
+&nbsp;<br>
+A&nbsp;WebDAVResponse&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;a&nbsp;subclass&nbsp;of&nbsp;int.&nbsp;The&nbsp;int&nbsp;value&nbsp;of&nbsp;such&nbsp;an<br>
+<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;the&nbsp;HTTP&nbsp;status&nbsp;number&nbsp;from&nbsp;the&nbsp;response.<br>
+&nbsp;<br>
+This&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;has&nbsp;the&nbsp;following&nbsp;attributes:<br>
+&nbsp;<br>
+response&nbsp;--&nbsp;The&nbsp;original&nbsp;httplib.HTTPResponse&nbsp;<a href="__builtin__.html#object">object</a>.<br>
+headers&nbsp;--&nbsp;A&nbsp;dictionary&nbsp;with&nbsp;the&nbsp;received&nbsp;headers.<br>
+content&nbsp;--&nbsp;The&nbsp;content&nbsp;of&nbsp;the&nbsp;response&nbsp;as&nbsp;string.<br>
+statusline&nbsp;--&nbsp;The&nbsp;received&nbsp;HTTP&nbsp;status&nbsp;line.&nbsp;E.g.&nbsp;"HTTP/1.1&nbsp;200&nbsp;OK".<br>
+is_multistatus&nbsp;--&nbsp;True,&nbsp;if&nbsp;the&nbsp;response's&nbsp;content&nbsp;is&nbsp;a&nbsp;multi-status<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response.<br>
+&nbsp;<br>
+You&nbsp;can&nbsp;iterate&nbsp;over&nbsp;a&nbsp;WebDAVResponse&nbsp;<a href="__builtin__.html#object">object</a>.&nbsp;If&nbsp;the&nbsp;received&nbsp;data&nbsp;was<br>
+a&nbsp;multi-status&nbsp;response,&nbsp;the&nbsp;iterator&nbsp;will&nbsp;yield&nbsp;a&nbsp;MultiStatusResponse<br>
+<a href="__builtin__.html#object">object</a>&nbsp;per&nbsp;result.&nbsp;If&nbsp;it&nbsp;was&nbsp;no&nbsp;multi-status&nbsp;response,&nbsp;the&nbsp;iterator&nbsp;will<br>
+just&nbsp;yield&nbsp;this&nbsp;WebDAVResponse&nbsp;<a href="__builtin__.html#object">object</a>.<br>
+&nbsp;<br>
+The&nbsp;length&nbsp;of&nbsp;a&nbsp;WebDAVResponse&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;is&nbsp;1,&nbsp;except&nbsp;for&nbsp;multi-status&nbsp;<br>
+responses.&nbsp;The&nbsp;length&nbsp;will&nbsp;then&nbsp;be&nbsp;the&nbsp;number&nbsp;of&nbsp;results&nbsp;in&nbsp;the<br>
+multi-status.</tt></dl>
+
+<hr>
+Methods inherited from <a href="tinydav.html#HTTPClient">HTTPClient</a>:<br>
+<dl><dt><a name="WebDAVClient-connect"><strong>connect</strong></a>(self, uri, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;CONNECT&nbsp;request&nbsp;and&nbsp;return&nbsp;HTTPResponse.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Path&nbsp;to&nbsp;post&nbsp;data&nbsp;to.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;set.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-get"><strong>get</strong></a>(self, uri, headers<font color="#909090">=None</font>, query<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;GET&nbsp;request&nbsp;and&nbsp;return&nbsp;status.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;URI&nbsp;of&nbsp;the&nbsp;request.<br>
+headers&nbsp;--&nbsp;Optional&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;send.<br>
+query&nbsp;--&nbsp;Mapping&nbsp;with&nbsp;key/value-pairs&nbsp;to&nbsp;be&nbsp;added&nbsp;as&nbsp;query&nbsp;to&nbsp;the&nbsp;URI.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-head"><strong>head</strong></a>(self, uri, headers<font color="#909090">=None</font>, query<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;HEAD&nbsp;request&nbsp;and&nbsp;return&nbsp;status.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;URI&nbsp;of&nbsp;the&nbsp;request.<br>
+headers&nbsp;--&nbsp;Optional&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;send.<br>
+query&nbsp;--&nbsp;Mapping&nbsp;with&nbsp;key/value-pairs&nbsp;to&nbsp;be&nbsp;added&nbsp;as&nbsp;query&nbsp;to&nbsp;the&nbsp;URI.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-options"><strong>options</strong></a>(self, uri, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;OPTIONS&nbsp;request&nbsp;and&nbsp;return&nbsp;status.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;URI&nbsp;of&nbsp;the&nbsp;request.<br>
+headers&nbsp;--&nbsp;Optional&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;send.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-post"><strong>post</strong></a>(self, uri, content<font color="#909090">=''</font>, headers<font color="#909090">=None</font>, query<font color="#909090">=None</font>, as_multipart<font color="#909090">=False</font>, encoding<font color="#909090">='ascii'</font>, with_filenames<font color="#909090">=False</font>)</dt><dd><tt>Make&nbsp;POST&nbsp;request&nbsp;and&nbsp;return&nbsp;HTTPResponse.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Path&nbsp;to&nbsp;post&nbsp;data&nbsp;to.<br>
+content&nbsp;--&nbsp;File&nbsp;descriptor,&nbsp;string&nbsp;or&nbsp;dict&nbsp;with&nbsp;content&nbsp;to&nbsp;POST.&nbsp;If&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;a&nbsp;dict,&nbsp;the&nbsp;dict&nbsp;contents&nbsp;will&nbsp;be&nbsp;posted&nbsp;as&nbsp;content&nbsp;type<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/x-www-form-urlencoded.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;set.<br>
+query&nbsp;--&nbsp;Mapping&nbsp;with&nbsp;key/value-pairs&nbsp;to&nbsp;be&nbsp;added&nbsp;as&nbsp;query&nbsp;to&nbsp;the&nbsp;URI.<br>
+as_multipart&nbsp;--&nbsp;Send&nbsp;post&nbsp;data&nbsp;as&nbsp;multipart/form-data.&nbsp;content&nbsp;must&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;dict,&nbsp;then.&nbsp;If&nbsp;content&nbsp;is&nbsp;not&nbsp;a&nbsp;dict,&nbsp;then&nbsp;this&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;argument&nbsp;will&nbsp;be&nbsp;ignored.&nbsp;The&nbsp;values&nbsp;of&nbsp;the&nbsp;dict&nbsp;may&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;subclass&nbsp;of&nbsp;email.mime.base.MIMEBase,&nbsp;which&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attached&nbsp;to&nbsp;the&nbsp;multipart&nbsp;as&nbsp;is,&nbsp;a&nbsp;2-tuple&nbsp;containing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;actual&nbsp;value&nbsp;(or&nbsp;file-like&nbsp;<a href="__builtin__.html#object">object</a>)&nbsp;and&nbsp;an&nbsp;encoding<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;this&nbsp;value&nbsp;(or&nbsp;the&nbsp;content-type&nbsp;in&nbsp;case&nbsp;of&nbsp;a&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file-like&nbsp;<a href="__builtin__.html#object">object</a>).<br>
+encoding&nbsp;--&nbsp;Send&nbsp;multipart&nbsp;content&nbsp;encoding&nbsp;with&nbsp;this&nbsp;encoding.&nbsp;Default<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;ASCII.<br>
+with_filenames&nbsp;--&nbsp;If&nbsp;True,&nbsp;a&nbsp;multipart's&nbsp;files&nbsp;will&nbsp;be&nbsp;sent&nbsp;with&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;filename&nbsp;paramenter&nbsp;set.&nbsp;Default&nbsp;is&nbsp;False.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-put"><strong>put</strong></a>(self, uri, fileobject, content_type<font color="#909090">='application/octet-stream'</font>, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;PUT&nbsp;request&nbsp;and&nbsp;return&nbsp;status.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Path&nbsp;for&nbsp;PUT.<br>
+fileobject&nbsp;--&nbsp;File-like&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;or&nbsp;string&nbsp;with&nbsp;content&nbsp;to&nbsp;PUT.<br>
+content_type&nbsp;--&nbsp;The&nbsp;content-type&nbsp;of&nbsp;the&nbsp;file.&nbsp;Default&nbsp;value&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application/octet-stream.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;dict&nbsp;with&nbsp;headers&nbsp;to&nbsp;send.<br>
+&nbsp;<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-setbasicauth"><strong>setbasicauth</strong></a>(self, user, password)</dt><dd><tt>Set&nbsp;authorization&nbsp;header&nbsp;for&nbsp;basic&nbsp;auth.<br>
+&nbsp;<br>
+user&nbsp;--&nbsp;Username<br>
+password&nbsp;--&nbsp;Password&nbsp;for&nbsp;user.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-setcookie"><strong>setcookie</strong></a>(self, cookie)</dt><dd><tt>Set&nbsp;cookie&nbsp;class&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;requests.<br>
+&nbsp;<br>
+cookie&nbsp;--&nbsp;Cookie&nbsp;class&nbsp;from&nbsp;cookielib.</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-setssl"><strong>setssl</strong></a>(self, key_file<font color="#909090">=None</font>, cert_file<font color="#909090">=None</font>)</dt><dd><tt>Set&nbsp;SSL&nbsp;key&nbsp;file&nbsp;and/or&nbsp;certificate&nbsp;chain&nbsp;file&nbsp;for&nbsp;HTTPS.<br>
+&nbsp;<br>
+Calling&nbsp;this&nbsp;method&nbsp;has&nbsp;the&nbsp;side&nbsp;effect&nbsp;of&nbsp;setting&nbsp;the&nbsp;protocol&nbsp;to<br>
+https.<br>
+&nbsp;<br>
+key_file&nbsp;--&nbsp;The&nbsp;name&nbsp;of&nbsp;a&nbsp;PEM&nbsp;formatted&nbsp;file&nbsp;that&nbsp;contains&nbsp;your<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;key.<br>
+cert_file&nbsp;--&nbsp;PEM&nbsp;formatted&nbsp;certificate&nbsp;chain&nbsp;file&nbsp;(see&nbsp;Python&nbsp;doc&nbsp;for<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;httplib).</tt></dd></dl>
+
+<dl><dt><a name="WebDAVClient-trace"><strong>trace</strong></a>(self, uri, maxforwards<font color="#909090">=None</font>, via<font color="#909090">=None</font>, headers<font color="#909090">=None</font>)</dt><dd><tt>Make&nbsp;TRACE&nbsp;request&nbsp;and&nbsp;return&nbsp;HTTPResponse.<br>
+&nbsp;<br>
+uri&nbsp;--&nbsp;Path&nbsp;to&nbsp;post&nbsp;data&nbsp;to.<br>
+maxforwards&nbsp;--&nbsp;Number&nbsp;of&nbsp;maximum&nbsp;forwards.&nbsp;May&nbsp;be&nbsp;None.<br>
+via&nbsp;--&nbsp;If&nbsp;given,&nbsp;an&nbsp;iterable&nbsp;containing&nbsp;each&nbsp;station&nbsp;in&nbsp;the&nbsp;form<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stated&nbsp;in&nbsp;<a href="http://www.rfc-editor.org/rfc/rfc2616.txt">RFC2616</a>,&nbsp;section&nbsp;14.45.<br>
+headers&nbsp;--&nbsp;If&nbsp;given,&nbsp;must&nbsp;be&nbsp;a&nbsp;mapping&nbsp;with&nbsp;headers&nbsp;to&nbsp;set.<br>
+&nbsp;<br>
+Raise&nbsp;ValueError,&nbsp;if&nbsp;maxforward&nbsp;is&nbsp;not&nbsp;an&nbsp;int&nbsp;or&nbsp;convertable&nbsp;to<br>
+an&nbsp;int.<br>
+Raise&nbsp;TypeError,&nbsp;if&nbsp;via&nbsp;is&nbsp;not&nbsp;an&nbsp;iterable&nbsp;of&nbsp;string.<br>
+Raise&nbsp;<a href="#HTTPUserError">HTTPUserError</a>&nbsp;on&nbsp;4xx&nbsp;HTTP&nbsp;status&nbsp;codes.<br>
+Raise&nbsp;<a href="#HTTPServerError">HTTPServerError</a>&nbsp;on&nbsp;5xx&nbsp;HTTP&nbsp;status&nbsp;codes.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="tinydav.html#HTTPClient">HTTPClient</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__all__</strong> = ('HTTPError', 'HTTPUserError', 'HTTPServerError', 'HTTPClient', 'WebDAVClient')<br>
+<strong>__author__</strong> = 'Manuel Hermann &lt;manuel-hermann@gmx.net&gt;'<br>
+<strong>__license__</strong> = 'LGPL'<br>
+<strong>__version__</strong> = '0.6.8'</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Manuel&nbsp;Hermann&nbsp;&lt;manuel-hermann@gmx.net&gt;</td></tr></table>
+</body></html>

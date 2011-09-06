@@ -1,0 +1,48 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module creator</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>creator</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/hermann/Entwürfe/hg/tinydav/tinydav/creator.py">/home/hermann/Entwürfe/hg/tinydav/tinydav/creator.py</a></font></td></tr></table>
+    <p><tt>Module&nbsp;with&nbsp;helper&nbsp;functions&nbsp;that&nbsp;generate&nbsp;XML&nbsp;requests.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-create_lock"><strong>create_lock</strong></a>(scope<font color="#909090">='exclusive'</font>, type_<font color="#909090">='write'</font>, owner<font color="#909090">=None</font>)</dt><dd><tt>Construct&nbsp;and&nbsp;return&nbsp;XML&nbsp;string&nbsp;for&nbsp;LOCK.<br>
+&nbsp;<br>
+scope&nbsp;--&nbsp;One&nbsp;of&nbsp;"exclusive"&nbsp;or&nbsp;"shared".<br>
+type_&nbsp;--&nbsp;Only&nbsp;"write"&nbsp;in&nbsp;defined&nbsp;in&nbsp;RFC.<br>
+owner&nbsp;--&nbsp;Optional&nbsp;owner&nbsp;information&nbsp;for&nbsp;lock.&nbsp;Can&nbsp;be&nbsp;any&nbsp;string.<br>
+&nbsp;<br>
+Raise&nbsp;ValueError,&nbsp;if&nbsp;illegal&nbsp;scope&nbsp;was&nbsp;given.</tt></dd></dl>
+ <dl><dt><a name="-create_propfind"><strong>create_propfind</strong></a>(names<font color="#909090">=False</font>, properties<font color="#909090">=None</font>, include<font color="#909090">=None</font>, namespaces<font color="#909090">=None</font>)</dt><dd><tt>Construct&nbsp;and&nbsp;return&nbsp;XML&nbsp;string&nbsp;for&nbsp;PROPFIND.<br>
+&nbsp;<br>
+names&nbsp;--&nbsp;Boolean&nbsp;whether&nbsp;the&nbsp;profind&nbsp;is&nbsp;requesting&nbsp;property&nbsp;names&nbsp;only.<br>
+properties&nbsp;--&nbsp;An&nbsp;iterable&nbsp;containing&nbsp;property&nbsp;names&nbsp;to&nbsp;request.&nbsp;Will&nbsp;only<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;considered&nbsp;when&nbsp;names&nbsp;is&nbsp;False.<br>
+include&nbsp;--&nbsp;An&nbsp;Iterable&nbsp;containing&nbsp;properties&nbsp;that&nbsp;shall&nbsp;be&nbsp;returned&nbsp;by&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WebDAV&nbsp;server&nbsp;in&nbsp;addition&nbsp;to&nbsp;the&nbsp;properties&nbsp;returned&nbsp;by&nbsp;an<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allprop&nbsp;request.<br>
+namespaces&nbsp;--&nbsp;Mapping&nbsp;(prefix-&gt;namespace)&nbsp;with&nbsp;additional&nbsp;namespaces,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;necessary.<br>
+&nbsp;<br>
+If&nbsp;names&nbsp;is&nbsp;False,&nbsp;properties&nbsp;is&nbsp;considered&nbsp;False,&nbsp;an&nbsp;allprop-PROPFIND<br>
+request&nbsp;is&nbsp;created.</tt></dd></dl>
+ <dl><dt><a name="-create_proppatch"><strong>create_proppatch</strong></a>(setprops, delprops, namespaces<font color="#909090">=None</font>)</dt><dd><tt>Construct&nbsp;and&nbsp;return&nbsp;XML&nbsp;string&nbsp;for&nbsp;PROPPATCH.<br>
+&nbsp;<br>
+setprops&nbsp;--&nbsp;Mapping&nbsp;with&nbsp;properties&nbsp;to&nbsp;set.<br>
+delprops&nbsp;--&nbsp;Iterable&nbsp;with&nbsp;element&nbsp;names&nbsp;to&nbsp;remove.<br>
+namespaces&nbsp;--&nbsp;Mapping&nbsp;(prefix-&gt;namespace)&nbsp;with&nbsp;additional&nbsp;namespaces,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;necessary.</tt></dd></dl>
+ <dl><dt><a name="-create_report"><strong>create_report</strong></a>(properties<font color="#909090">=None</font>, elements<font color="#909090">=None</font>, namespaces<font color="#909090">=None</font>)</dt><dd><tt>Construct&nbsp;and&nbsp;return&nbsp;XML&nbsp;for&nbsp;REPORT.</tt></dd></dl>
+</td></tr></table>
+</body></html>

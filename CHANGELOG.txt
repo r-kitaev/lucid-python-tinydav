@@ -1,0 +1,152 @@
+===============================
+Tinydav - WebDAV client libaray
+===============================
+
+-------------
+Version 0.7.1
+-------------
+FIXES
+* Only encode headers when non-ascii.
+
+
+-------------
+Version 0.7.0
+-------------
+FEATURES
+* Python 3 support.
+
+FIXES
+* Fix parsing error handling for Python 2.7.
+* Fix authorization response parsing.
+
+
+-------------
+Version 0.6.8
+-------------
+FEATURES
+* Attach email.mime.base.MIMEBase instances to multiparts.
+* Send content along with DELETEs.
+
+CHANGES
+* HTTPClient.delete method may take a content argument, now.
+
+
+-------------
+Version 0.6.7
+-------------
+FIXES
+* Fix syntax error with Python 2.5
+
+CHANGES
+* Cleanup unittest's mock module.
+
+
+-------------
+Version 0.6.6
+-------------
+FIXES
+* Fix timeout property of WebDAVLockResponse.
+
+CHANGES
+* Update unittests to get 100% coverage.
+
+
+-------------
+Version 0.6.5
+-------------
+FIXES
+* Fix HTTPResponse bug on 401 statuses.
+
+CHANGES
+* More unittests.
+
+
+-------------
+Version 0.6.4
+-------------
+FIXES
+* Fix WebDAVResponse bug causing the whole thing not to work.
+
+CHANGES
+* Updated unittests.
+
+
+-------------
+Version 0.6.3
+-------------
+FIXES
+* Exception occured when trying to post a file without explicit content-type.
+
+CHANGES
+* Don't use reserved names as variable names.
+* Set default encoding for multi-part posts from utf-8 to ascii.
+* multipart/form-data: Multiple files will be sent as multipart/mixed.
+* Posting files can include the filenames.
+
+
+-------------
+Version 0.6.2
+-------------
+FIXES
+* multi-status prop element may contain arbitrary XML elements. Return them
+  as ElementTree elements instead of strings.
+
+CHANGES
+* Fixed RFC number in comments
+* Updated
+
+
+-------------
+Version 0.6.1
+-------------
+FIXES
+* Fix cookie support.
+
+
+-------------
+Version 0.6.0
+-------------
+FEATURES
+* Support of all WebDAV methods.
+* Support for Versioning Extensions to WebDAV (RFC 3253): REPORT method
+* Added multipart/form-data support for POST method.
+* Support all instantiation arguments of httlib.HTTP(S)Connection.
+
+FIXES
+* Fix locking support.
+
+
+-------------
+Version 0.5.2
+-------------
+FEATURES
+* Changes license to LGPL Version 3.
+* Support of all WebDAV methods.
+* Support for Versioning Extensions to WebDAV (RFC 3253): REPORT method
+* Added support for application/x-www-form-urlencoded.
+* Added cookie support.
+
+NOTICE
+* Slightly incompatible with Version 0.5.1:
+  * Client classes don't take username and password anymore. Use setbasicauth
+    method instead.
+  * Raise ValueErrors instead of AttributeErrors in methods.
+
+
+-------------
+Version 0.5.1
+-------------
+FEATURES
+* Support of all WebDAV methods.
+* Support for Versioning Extensions to WebDAV (RFC 3253): REPORT method
+
+FIXES
+* Cope with malformed XML in multistatus responses.
+
+
+------------------------------
+Version 0.5.0 -- first release
+------------------------------
+FEATURES
+* Support of all WebDAV methods.
+

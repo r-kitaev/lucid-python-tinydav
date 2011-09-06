@@ -1,0 +1,38 @@
+Metadata-Version: 1.0
+Name: tinydav
+Version: 0.7.1
+Summary: An easy-to-use HTTP and WebDAV client library.
+Home-page: http://code.google.com/p/tinydav/
+Author: Manuel Hermann
+Author-email: manuel-hermann@gmx.net
+License: LGPL
+Download-URL: http://tinydav.googlecode.com/files/tinydav-0.7.1.tar.gz
+Description: An easy-to-use HTML and WebDAV client library for Python
+        --------------------------------------------------------
+        
+        This is a small library for contacting HTTP and WebDAV servers. Goal of this project until version 1.0 is supporting all WebDAV methods including the versioning extensions from RFC 3253).
+        
+        Features:
+         - HTTP methods OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT.
+         - WebDAV methods MKCOL, PROPFIND, PROPPATCH, DELETE, COPY, MOVE, LOCK, UNLOCK
+         - Support for REPORT method (report-tree requests only, RFC 3253)
+         - Cookies
+         - SSL
+         - Multipart/form-data and application/x-www-form-urlencoded POST requests
+        
+        This version requires Python 2.5 or later (including Python 3.)
+        
+Keywords: webdav,https,http,library,client,lgpl,rfc2518,rfc2068,rfc3253
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.5
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

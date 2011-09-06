@@ -1,0 +1,114 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module util</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>util</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/hermann/Entwürfe/hg/tinydav/tinydav/util.py">/home/hermann/Entwürfe/hg/tinydav/tinydav/util.py</a></font></td></tr></table>
+    <p><tt>Utility&nbsp;functions&nbsp;and&nbsp;classes&nbsp;for&nbsp;tinydav&nbsp;WebDAV&nbsp;client.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="posixpath.html">posixpath</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+</td><td width="25%" valign=top><a href="urlparse.html">urlparse</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="util.html#FakeHTTPRequest">FakeHTTPRequest</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FakeHTTPRequest">class <strong>FakeHTTPRequest</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Fake&nbsp;HTTP&nbsp;request&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;needed&nbsp;for&nbsp;cookies.<br>
+&nbsp;<br>
+See&nbsp;<a href="http://docs.python.org/library/cookielib.html#cookiejar-and-filecookiejar-objects">http://docs.python.org/library/cookielib.html#cookiejar-and-filecookiejar-objects</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="FakeHTTPRequest-__init__"><strong>__init__</strong></a>(self, client, uri, headers)</dt><dd><tt>Initialize&nbsp;the&nbsp;fake&nbsp;HTTP&nbsp;request&nbsp;<a href="__builtin__.html#object">object</a>.<br>
+&nbsp;<br>
+client&nbsp;--&nbsp;HTTPClient&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;or&nbsp;one&nbsp;of&nbsp;its&nbsp;subclasses.<br>
+uri&nbsp;--&nbsp;The&nbsp;URI&nbsp;to&nbsp;call.<br>
+headers&nbsp;--&nbsp;Headers&nbsp;dict&nbsp;to&nbsp;add&nbsp;cookie&nbsp;stuff&nbsp;to.</tt></dd></dl>
+
+<dl><dt><a name="FakeHTTPRequest-add_unredirected_header"><strong>add_unredirected_header</strong></a>(self, key, header)</dt></dl>
+
+<dl><dt><a name="FakeHTTPRequest-get_full_url"><strong>get_full_url</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FakeHTTPRequest-get_host"><strong>get_host</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FakeHTTPRequest-get_origin_req_host"><strong>get_origin_req_host</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FakeHTTPRequest-get_type"><strong>get_type</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FakeHTTPRequest-has_header"><strong>has_header</strong></a>(self, name)</dt></dl>
+
+<dl><dt><a name="FakeHTTPRequest-is_unverifiable"><strong>is_unverifiable</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-extract_namespace"><strong>extract_namespace</strong></a>(key)</dt><dd><tt>Return&nbsp;the&nbsp;namespace&nbsp;in&nbsp;key&nbsp;or&nbsp;None,&nbsp;when&nbsp;no&nbsp;namespace&nbsp;is&nbsp;in&nbsp;key.<br>
+&nbsp;<br>
+key&nbsp;--&nbsp;String&nbsp;to&nbsp;get&nbsp;namespace&nbsp;from</tt></dd></dl>
+ <dl><dt><a name="-get_depth"><strong>get_depth</strong></a>(depth, allowed<font color="#909090">=('0', '1', 'infinity')</font>)</dt><dd><tt>Return&nbsp;string&nbsp;with&nbsp;depth.<br>
+&nbsp;<br>
+depth&nbsp;--&nbsp;Depth&nbsp;value&nbsp;to&nbsp;check.<br>
+allowed&nbsp;--&nbsp;Iterable&nbsp;with&nbsp;allowed&nbsp;depth&nbsp;header&nbsp;values.<br>
+&nbsp;<br>
+Raise&nbsp;ValueError,&nbsp;if&nbsp;an&nbsp;illegal&nbsp;depth&nbsp;was&nbsp;given.</tt></dd></dl>
+ <dl><dt><a name="-make_absolute"><strong>make_absolute</strong></a>(httpclient, uri)</dt><dd><tt>Return&nbsp;correct&nbsp;absolute&nbsp;URI.<br>
+&nbsp;<br>
+httpclient&nbsp;--&nbsp;HTTPClient&nbsp;instance&nbsp;with&nbsp;protocol,&nbsp;host&nbsp;and&nbsp;port&nbsp;attribute.<br>
+uri&nbsp;--&nbsp;The&nbsp;destination&nbsp;path.</tt></dd></dl>
+ <dl><dt><a name="-make_multipart"><strong>make_multipart</strong></a>(content, default_encoding<font color="#909090">='ascii'</font>, with_filenames<font color="#909090">=False</font>)</dt><dd><tt>Return&nbsp;the&nbsp;headers&nbsp;and&nbsp;content&nbsp;for&nbsp;multipart/form-data.<br>
+&nbsp;<br>
+content&nbsp;--&nbsp;Dict&nbsp;with&nbsp;content&nbsp;to&nbsp;POST.&nbsp;The&nbsp;dict&nbsp;values&nbsp;are&nbsp;expected&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;unicode&nbsp;or&nbsp;decodable&nbsp;with&nbsp;us-ascii.<br>
+default_encoding&nbsp;--&nbsp;Send&nbsp;multipart&nbsp;with&nbsp;this&nbsp;encoding,&nbsp;if&nbsp;no&nbsp;special&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encoding&nbsp;was&nbsp;given&nbsp;with&nbsp;the&nbsp;content.&nbsp;Default&nbsp;is&nbsp;ascii.<br>
+with_filenames&nbsp;--&nbsp;If&nbsp;True,&nbsp;a&nbsp;multipart's&nbsp;files&nbsp;will&nbsp;be&nbsp;sent&nbsp;with&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;filename&nbsp;paramenter&nbsp;set.&nbsp;Default&nbsp;is&nbsp;False.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__all__</strong> = ('FakeHTTPRequest', 'make_absolute', 'make_multipart', 'extract_namespace', 'get_depth')</td></tr></table>
+</body></html>
