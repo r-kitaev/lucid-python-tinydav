@@ -1,0 +1,22 @@
+Source: lucid-python-tinydav
+Section: python
+Priority: extra
+Maintainer: Alex Dvoretsky (hh.ru project package signing) <alex@dvoretsky.name>
+Uploaders: Alexander Tsvetkov <sickuenser@gmail.com>
+Build-Depends:
+  cdbs,
+  debhelper (>= 7),
+  python-support,
+  python,
+  python-all-dev (>= 2.5),
+  python-setuptools
+Standards-Version: 3.8.4
+
+Package: lucid-python-tinydav
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, python
+Replaces: python-tinydav
+Description: An easy-to-use HTTP and WebDAV client library.
+ This is a small library for contacting HTTP and WebDAV servers.
+ Goal of this project until version 1.0 is supporting all WebDAV
+ methods including the versioning extensions from RFC 3253).
